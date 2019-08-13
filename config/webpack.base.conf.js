@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const PATHS = {
   source: path.join(__dirname, '../source'),
-  build: path.join(__dirname, '../build'),
+  dist: path.join(__dirname, '../dist'),
   assets: 'assets/'
 };
 
@@ -87,13 +87,13 @@ module.exports = {
       filename: `./${page.replace(/\.pug/,'.html')}`
     })),
     new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/includes/index.pug`,
+      template: `${PAGES_DIR}/includes/pages/index.pug`,
       filename: './index.html',
       inject: true
     }),
     new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/includes/pages/example.pug`,
-      filename: './pages/example.html',
+      filename: './example.html',
       inject: true
     }),
   ]
