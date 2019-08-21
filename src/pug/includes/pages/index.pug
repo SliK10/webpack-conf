@@ -1,0 +1,30 @@
+extends ../layout/main
+
+block content
+  h1 Модуль заявок на размещение новостей на сайт РГГМУ
+
+
+  form(action="#")
+    p
+      label(for="news-headline") Заголовок новости
+    input#news-headline(type="text" name="news-headline" placeholder="Введите заголовок новости" size="30")
+    p
+      label(for="short-text") Короткий текст новости
+    textarea#short-text(name="short-text" placeholder="Введите короткое описание новости (кол-во символов ограничено)")
+    p
+      label(for="content") Контент новости
+    textarea#content(name="content" placeholder="Введите основной текст новости")
+    p
+      label(for="files") Загрузите фото
+    input.files(type="file" name="files" accept="image/*" multiple)
+    p
+      label(for="author") Автор новости
+    input.author(type="text" name="author")
+    p
+      label(for="subdivision") Подразделение
+    input.subdivision(type="text" name="subdivision")
+    p
+      label(for="files") Документ, подтверждающий размещение
+    input.files(type="file" name="files")
+    p
+      button.publich-button Опубликовать
