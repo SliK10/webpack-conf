@@ -2,8 +2,13 @@ doctype html
 html(lang="ru")
   head
     meta(charset="UTF-8")
-    title Размещеие новостей
+    title Верстка сайта
     link(rel="stylesheet" href="../../../index.scss")
-  body(style="background-image: url(./assets/img/bg.jpg)")
-    include ./header/header.pug
+  body.page
+    .page__row
+      .page__cell
+        include ./header/header.pug
+    .page__row
+      .page__cell
+        include ./nav/nav.pug
     block content

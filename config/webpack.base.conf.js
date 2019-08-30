@@ -32,6 +32,12 @@ module.exports = {
         loader: 'babel-loader',
         exclude: '/node_modules/'
       }, {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]'
+        }
+      }, {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
@@ -46,14 +52,14 @@ module.exports = {
           'style-loader',
           MiniCssExtractPlugin.loader,
           {
-          loader: 'css-loader',
-          options: { sourceMap: true }
+            loader: 'css-loader',
+            options: { sourceMap: true }
           }, {
             loader: 'postcss-loader',
             options: { sourceMap: true, config: { path: './postcss.config.js' } }
           }, {
-          loader: 'sass-loader',
-          options: { sourceMap: true }
+            loader: 'sass-loader',
+            options: { sourceMap: true }
           }
         ]
       }, {
@@ -78,7 +84,8 @@ module.exports = {
       filename: `${PATHS.assets}css/[name].[hash].css`,
     }),
     new CopyWebpackPlugin([
-      { from: `${PATHS.src}/img`, to: `${PATHS.assets}img` }
+      { from: `${PATHS.src}/img`, to: `${PATHS.assets}img` },
+      { from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts` }
     ]),
 
     
@@ -89,11 +96,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/includes/pages/index.pug`,
       filename: './index.html',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/includes/pages/example.pug`,
-      filename: './example.html',
       inject: true
     }),
   ]

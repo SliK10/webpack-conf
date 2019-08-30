@@ -1,0 +1,17 @@
+.nav {
+  font-size: 1.1875rem;
+}
+
+.nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav__link {
+  text-decoration: none;
+  padding: 1.33rem;
+  display: block;
+}
