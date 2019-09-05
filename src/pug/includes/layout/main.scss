@@ -2,6 +2,10 @@ html {
   font-size: 100%;
 }
 
+button, input, textarea {
+  outline: none;
+}
+
 .page {
   font-family: 'Roboto', Verdana, Tahoma, sans-serif;
   font-weight: 300;

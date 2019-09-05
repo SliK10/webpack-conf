@@ -1,6 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -15,7 +16,8 @@ const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.p
 
 module.exports = {
   externals: {
-    paths: PATHS
+    paths: PATHS,
+    jquery: 'jQuery'
   },
   entry: {
     app: PATHS.src
@@ -78,17 +80,18 @@ module.exports = {
       }
     ]
   },
-  
+
   plugins: [
     new MiniCssExtractPlugin({
       filename: `${PATHS.assets}css/[name].[hash].css`,
     }),
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/img`, to: `${PATHS.assets}img` },
-      { from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts` }
+      { from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts` },
+      { from: `${PATHS.src}/lib`, to: `${PATHS.assets}lib` }
     ]),
 
-    
+
     ...PAGES.map(page => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,
       filename: `./${page.replace(/\.pug/,'.html')}`
@@ -98,5 +101,14 @@ module.exports = {
       filename: './index.html',
       inject: true
     }),
+    new HtmlWebpackExternalsPlugin({
+      externals: [
+        {
+          module: 'jquery',
+          entry: 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js',
+          global: 'jQuery',
+        },
+      ],
+    })
   ]
 }

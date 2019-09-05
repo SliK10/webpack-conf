@@ -4,6 +4,7 @@
 @import "./scss/fonts.scss";
 @import "./pug/includes/layout/header/header.scss";
 @import "./pug/includes/layout/nav/nav.scss";
+@import "./pug/includes/layout/slider/slider.scss";
 
 *,
 *::after,
@@ -11,4 +12,19 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.heading {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin: 1.875rem;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .grid__item {
+    text-align: center;
+  }
 }
