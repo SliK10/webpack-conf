@@ -2,9 +2,8 @@ doctype html
 html(lang="ru")
   head
     meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
     title Верстка сайта
-    //- link(rel="stylesheet" type="text/css" href="../../../lib/owlcarousel/owl.carousel.min.css")
-    //- link(rel="stylesheet" href="../../../index.scss")
   body.page
     .page__row
       .page__cell
@@ -17,3 +16,6 @@ html(lang="ru")
     .page__row
       .page__cell
         block content
+    .page__row--footer
+      .page__cell
+        include ./footer/footer.pug

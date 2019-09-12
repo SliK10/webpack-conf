@@ -5,6 +5,8 @@
 @import "./pug/includes/layout/header/header.scss";
 @import "./pug/includes/layout/nav/nav.scss";
 @import "./pug/includes/layout/slider/slider.scss";
+@import "./pug/includes/layout/footer/footer.scss";
+@import "./scss/responsive.scss";
 
 *,
 *::after,
@@ -25,6 +27,67 @@
   flex-wrap: wrap;
   justify-content: space-between;
   .grid__item {
+    position: relative;
+    width: 49.15%;
+    margin-bottom: 1.7%;
+  }
+  .grid__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+  }
+  .grid__overlay:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  .grid__picture {
+    max-width: 100%;
+    display: block;
+  }
+  .grid__link {
+    font-size: 1.8125rem;
+    color: #fff;
     text-align: center;
+  }
+  .grid__text {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.advantage {
+  display: flex;
+  justify-content: space-between;
+
+  .advantage__item {
+    width: 28%;
+    text-align: center;
+    margin-right: 8%;
+  }
+  .advantage__item:last-child {
+    margin-right: 0;
+  }
+  .icon-circle {
+    display: inline-block;
+    width: 6.25rem;
+    height: 6.25rem;
+    background: #ffb9b3;
+    text-align: center;
+    border-radius: 50%;
+    padding: 1.1rem;
+  }
+  .icon-circle__picture {
+    max-width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .advantage__heading {
+    font-size: 1.25rem;
+    margin: 0 0 0.8rem;
   }
 }
